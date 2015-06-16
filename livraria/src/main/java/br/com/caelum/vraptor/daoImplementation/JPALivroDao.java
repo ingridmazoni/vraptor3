@@ -7,10 +7,10 @@ import javax.persistence.NoResultException;
 
 import br.com.caelum.vraptor.dao.LivroDao;
 import br.com.caelum.vraptor.entity.Livro;
+import br.com.caelum.vraptor.ioc.Component;
 
 
-
-
+@Component
 public class JPALivroDao implements LivroDao {
 	
 	private EntityManager manager;
