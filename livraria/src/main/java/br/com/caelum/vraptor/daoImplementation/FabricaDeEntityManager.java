@@ -1,18 +1,23 @@
 package br.com.caelum.vraptor.daoImplementation;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.ioc.ComponentFactory;
 
 
+@Component
+public class FabricaDeEntityManager implements ComponentFactory<EntityManager>{
+	EntityManager manager;
+	
+	
 
-public class FabricaDeEntityManager {
+	public FabricaDeEntityManager(EntityManagerFactory factory) {
+		this.manager = factory.createEntityManager();
+		}
+
 	
 	public EntityManager getInstance() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
-		EntityManager manager = factory.createEntityManager();
 		return manager;
-		
 	}
 
 

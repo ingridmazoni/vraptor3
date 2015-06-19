@@ -6,9 +6,10 @@ import javax.annotation.Resource;
 
 import br.com.caelum.vraptor.dao.*;
 import br.com.caelum.vraptor.entity.*;
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.repository.*;
 
-@Resource
+@Component
 public class UmaEstanteNoBancoDeDados implements Estante{
 	
 	private final LivroDao dao;
@@ -18,18 +19,18 @@ public class UmaEstanteNoBancoDeDados implements Estante{
 	}
 
 	public void guarda(Livro livro) {
-		// TODO Auto-generated method stub
+		this.dao.adiciona(livro);
 		
 	}
 
 	public List<Livro> todosOsLivros() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return this.dao.todos();
 	}
 
 	public Livro buscaPorIsbn(String isbn) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.dao.buscaPorIsbn(isbn);
 	}
 
 	

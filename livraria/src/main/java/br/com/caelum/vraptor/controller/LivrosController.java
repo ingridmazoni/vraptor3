@@ -12,8 +12,8 @@ import br.com.caelum.vraptor.repository.Estante;
 public class LivrosController {
 	private  Estante estante;
 	
-	public LivrosController() {
-		estante = new UmaEstanteNoBancoDeDados(null);
+	public LivrosController(Estante estante) {
+		this.estante = estante;
 	}
 
 	
