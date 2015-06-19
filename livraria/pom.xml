@@ -45,7 +45,12 @@
 		<version>3.0</version>
 	</dependency>
 	
-	
+	<dependency>
+   		<groupId>com.google.inject.extensions</groupId>
+   		<artifactId>guice-servlet</artifactId>
+   		<version>3.0</version>
+  	</dependency>
+		
 	<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -70,7 +75,39 @@
 			<artifactId>hibernate-validator-cdi</artifactId>
 			<version>5.1.1.Final</version>
 		</dependency>
+		
+		
+		<dependency>
+   			 <groupId>org.javassist</groupId>
+    		<artifactId>javassist</artifactId>
+   			 <version>3.18.1-GA</version>
+		</dependency>
     
+    
+    	<dependency>
+   			 <groupId>org.jboss.weld.servlet</groupId>
+    		<artifactId>weld-servlet-core</artifactId>
+    		<version>2.1.2.Final</version>
+		</dependency>
+
+		<dependency>
+    		<groupId>org.jboss.weld</groupId>
+   			<artifactId>weld-core-impl</artifactId>
+    		<version>2.1.2.Final</version>
+			</dependency>
+			
+			<dependency>
+    			<groupId>com.thoughtworks.xstream</groupId>
+   				 <artifactId>xstream</artifactId>
+    			<version>1.4.4</version>
+			</dependency>
+			
+			<dependency>
+    			<groupId>com.google.code.gson</groupId>
+    			<artifactId>gson</artifactId>
+    			<version>2.2.4</version>
+		</dependency>
+			
   </dependencies>
   <build>
     <finalName>livraria</finalName>
