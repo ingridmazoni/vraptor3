@@ -1,6 +1,8 @@
 package br.com.caelum.vraptor.daoImplementation;
+import javax.annotation.PreDestroy;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.ComponentFactory;
 
@@ -18,6 +20,12 @@ public class FabricaDeEntityManager implements ComponentFactory<EntityManager>{
 	
 	public EntityManager getInstance() {
 		return manager;
+	}
+	
+	
+	@PreDestroy
+	public void fechaManager() {
+		this.manager.close();
 	}
 
 
