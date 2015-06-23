@@ -9,6 +9,17 @@
 </head>
 <body style="background-color:MistyRose">
 
+<ul class="errors">
+<c:forEach items="${errors}" var="error">
+<li>
+	<!-- o campo em que ocorreu o erro, ou o tipo do erro -->
+		${error.category}:
+	<!-- a mensagem de erro de validação -->
+${error.message}
+</li>
+</c:forEach>
+</ul>
+
 	<form  action="<c:url value="/livros/salva"/>" method="post">
 		<h2>Formulário de cadastro de livros</h2>
 		<ul>

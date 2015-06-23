@@ -23,5 +23,9 @@
 			<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
   
+ 	<error-page>
+		<error-code>404</error-code>
+		<location>/naoEncontrado.jsp</location>
+	</error-page>  
  	  
 </web-app>
