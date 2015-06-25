@@ -4,9 +4,7 @@ import java.util.List;
 
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.entity.Livro;
-import br.com.caelum.vraptor.estante.UmaEstanteNoBancoDeDados;
 import br.com.caelum.vraptor.repository.Estante;
 import br.com.caelum.vraptor.validation.ValidatorLivros;
 
