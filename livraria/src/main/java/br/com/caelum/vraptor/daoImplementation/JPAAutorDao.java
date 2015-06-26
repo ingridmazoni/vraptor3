@@ -43,7 +43,7 @@ public class JPAAutorDao implements AutorDao {
 		
 	}
 
-	public Autor buscaPorId(String id) {
+	public Autor buscaPorId(Long id) {
 		try {
 			this.manager.getTransaction().begin();
 			return	manager.createQuery("select a from Autor a where a.id = :id",Autor.class)

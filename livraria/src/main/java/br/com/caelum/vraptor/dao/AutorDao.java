@@ -8,6 +8,6 @@ public interface AutorDao {
 	
 	public void adiciona(Autor Autor);
 	public List<Autor> todos();
-	public Autor buscaPorId(String id);
+	public Autor buscaPorId(Long id);
 
 }

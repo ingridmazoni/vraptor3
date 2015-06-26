@@ -8,6 +8,6 @@ public interface RepositoryAutor {
 	
 	public void guarda(Autor autor);
 	public List<Autor> todosOsAutores();
-	public Autor buscaPorId(String id);
+	public Autor buscaPorId(Long id);
 
 }

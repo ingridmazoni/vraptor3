@@ -15,9 +15,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name="Autor")
 public class Autor {
-	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.AUTO)
+		
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private Long id;
 		
 	@Column

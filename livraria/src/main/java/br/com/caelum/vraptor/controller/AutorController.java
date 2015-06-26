@@ -42,7 +42,7 @@ public class AutorController {
 	}
 	
 	
-	public void edita(String id) {
+	public void edita(Long id) {
 		Autor autorEncontrado = repositoryAutor.buscaPorId(id);
 		if (autorEncontrado == null) {
 			result.notFound();

@@ -26,7 +26,7 @@ public class AutorNoBanco implements RepositoryAutor {
 		return daoAutor.todos();
 	}
 
-	public Autor buscaPorId(String id) {
+	public Autor buscaPorId(Long id) {
 		
 		return daoAutor.buscaPorId(id);
 	}
