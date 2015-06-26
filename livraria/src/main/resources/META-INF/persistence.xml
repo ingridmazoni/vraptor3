@@ -8,6 +8,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         
           <class>br.com.caelum.vraptor.entity.Livro</class>
+          <class>br.com.caelum.vraptor.entity.Autor</class>
          
         <properties>
             <property name="hibernate.show_sql" value="true" />
