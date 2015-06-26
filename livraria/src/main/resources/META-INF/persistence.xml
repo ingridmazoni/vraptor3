@@ -9,6 +9,7 @@
         
           <class>br.com.caelum.vraptor.entity.Livro</class>
           <class>br.com.caelum.vraptor.entity.Autor</class>
+          <class>br.com.caelum.vraptor.entity.Pais</class>
          
         <properties>
             <property name="hibernate.show_sql" value="true" />

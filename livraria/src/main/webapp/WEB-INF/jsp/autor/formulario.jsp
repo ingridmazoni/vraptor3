@@ -30,7 +30,7 @@ ${error.message}
 			<li>Número de Livros: <br/>
 						<input type="text" name="autor.numeroDeLivros" value="${autor.numeroDeLivros}"/></li>
 			<li>Naturalidade: <br/>
-						<input type="text" name="autor.naturalidade"value="${autor.naturalidade}"/>
+						<input type="text" name="autor.naturalidade" value="${autor.naturalidade}"/>
 						<input type="hidden" name="autor.id" value="${autor.id}" />
 			</li>
 		</ul>
