@@ -48,7 +48,7 @@ public class Autor {
 	@ElementCollection
 	@ManyToMany
 	private List<Livro> livros;
-	
+		
 	@ManyToOne
 	@JoinColumn (name ="livro_id")
 	private Livro ultimoLivro;
@@ -77,7 +77,7 @@ public class Autor {
 	public void setNaturalidade(Pais naturalidade) {
 		this.naturalidade = naturalidade;
 	}
-	/*public List<Livro> getLivros() {
+	public List<Livro> getLivros() {
 		return livros;
 	}
 	public void setLivros(List<Livro> livros) {
@@ -88,7 +88,7 @@ public class Autor {
 	}
 	public void setUltimoLivro(Livro ultimoLivro) {
 		this.ultimoLivro = ultimoLivro;
-	}*/
+	}
 	public Long getId() {
 		return id;
 	}

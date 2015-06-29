@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Autor;
+import br.com.caelum.vraptor.entity.Livro;
 import br.com.caelum.vraptor.repository.RepositoryAutor;
 import br.com.caelum.vraptor.validation.ValidatorAutor;
 
@@ -27,7 +28,8 @@ public class AutorController {
 	public void formulario() {}
 	
 	
-	public void salva(Autor autor) {
+	public void salva(Autor autor, Livro livro) {
+		autor.setUltimoLivro(livro);
 		validatorAutor.validaAutor(autor).onErrorRedirectTo(this).formulario();
 		repositoryAutor.guarda(autor);
 		result.include("mensagem", "Autor salvo com sucesso!");
