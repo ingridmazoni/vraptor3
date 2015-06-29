@@ -33,6 +33,8 @@ ${error.message}
 						<input type="text" name="autor.naturalidade" value="${autor.naturalidade}"/>
 						<input type="hidden" name="autor.id" value="${autor.id}" />
 			</li>
+			<li>Ultimo Livro: <br/>
+						<input type="text" name="autor.ultimoLivro" value="${livro.id}"/></li>
 		</ul>
 		<input type="submit" value="Salvar" />
 	</form>

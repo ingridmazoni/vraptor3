@@ -1,17 +1,24 @@
 package br.com.caelum.vraptor.entity;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -38,11 +45,13 @@ public class Autor {
 	@NotNull(message = "{campo.obrigatorio}")
 	private Pais naturalidade;
 	
+	@ElementCollection
+	@ManyToMany
+	private List<Livro> livros;
 	
-	/*private List<Livro> livros;
-	
-	
-	private Livro ultimoLivro;*/
+	@ManyToOne
+	@JoinColumn (name ="livro_id")
+	private Livro ultimoLivro;
 	
 	public String getNome() {
 		return nome;
