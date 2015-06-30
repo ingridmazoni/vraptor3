@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Autor;
 import br.com.caelum.vraptor.entity.Livro;
+import br.com.caelum.vraptor.entity.Pais;
 import br.com.caelum.vraptor.repository.RepositoryAutor;
 import br.com.caelum.vraptor.validation.ValidatorAutor;
 
@@ -25,7 +26,10 @@ public class AutorController {
 		this.validatorAutor=validatorAutor;
 	}
 	
-	public void formulario() {}
+	public void formulario() {
+		result.include("listaPaises",Pais.values());
+		
+	}
 	
 	
 	public void salva(Autor autor, Livro livro) {
@@ -50,6 +54,7 @@ public class AutorController {
 			result.notFound();
 		} else {
 			result.include(autorEncontrado);
+			result.include("listaPaises",Pais.values());
 			result.of(this).formulario();
 		}
 	}

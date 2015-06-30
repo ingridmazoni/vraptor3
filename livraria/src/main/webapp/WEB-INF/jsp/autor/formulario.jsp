@@ -30,7 +30,11 @@ ${error.message}
 			<li>Número de Livros: <br/>
 						<input type="text" name="autor.numeroDeLivros" value="${autor.numeroDeLivros}"/></li>
 			<li>Naturalidade: <br/>
-						<input type="text" name="autor.naturalidade" value="${autor.naturalidade}"/>
+						<select name="autor.naturalidade">
+ 								<c:forEach items="${listaPaises}" var="paises">
+									 <option value="${paises}">${paises}</option>
+ 								</c:forEach>
+						</select>	
 						<input type="hidden" name="autor.id" value="${autor.id}" />
 			</li>
 			<li>Ultimo Livro: <br/>
