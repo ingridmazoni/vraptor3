@@ -33,8 +33,8 @@ public class AutorController {
 	
 	
 	public void salva(Autor autor, Livro livro) {
-		autor.setUltimoLivro(livro);
 		validatorAutor.validaAutor(autor).onErrorRedirectTo(this).formulario();
+		autor.setUltimoLivro(livro);
 		repositoryAutor.guarda(autor);
 		result.include("mensagem", "Autor salvo com sucesso!");
 		result.redirectTo(this).lista();

@@ -9,8 +9,9 @@ import br.com.caelum.vraptor.validator.I18nMessage;
 public class ValidatorLivros {
 	
 	private Validator validador;
-
-	public ValidatorLivros(Validator validator) {
+	private 
+	
+	ValidatorLivros(Validator validator) {
 		
 		this.validador=validator;
 	}
