@@ -9,5 +9,6 @@ public interface LivroDao {
 	public void adiciona(Livro livro);
 	public List<Livro> todos();
 	public Livro buscaPorIsbn(String isbn);
+	public boolean buscaPorId(Long id);
 
 }

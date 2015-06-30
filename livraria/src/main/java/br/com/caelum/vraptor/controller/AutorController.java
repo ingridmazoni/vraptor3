@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.entity.Livro;
 import br.com.caelum.vraptor.entity.Pais;
 import br.com.caelum.vraptor.repository.RepositoryAutor;
 import br.com.caelum.vraptor.validation.ValidatorAutor;
+import br.com.caelum.vraptor.validation.ValidatorLivros;
 
 
 
@@ -24,6 +25,7 @@ public class AutorController {
 		this.repositoryAutor = repositoryAutor;
 		this.result = result;
 		this.validatorAutor=validatorAutor;
+		
 	}
 	
 	public void formulario() {
@@ -33,7 +35,7 @@ public class AutorController {
 	
 	
 	public void salva(Autor autor, Livro livro) {
-		validatorAutor.validaAutor(autor).onErrorRedirectTo(this).formulario();
+		validatorAutor.validaAutor(autor,livro).onErrorRedirectTo(this).formulario();
 		autor.setUltimoLivro(livro);
 		repositoryAutor.guarda(autor);
 		result.include("mensagem", "Autor salvo com sucesso!");

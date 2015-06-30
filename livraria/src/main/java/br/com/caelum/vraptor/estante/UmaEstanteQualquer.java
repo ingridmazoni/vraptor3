@@ -31,6 +31,12 @@ public class UmaEstanteQualquer implements Estante {
 	}
 
 
+
+	public boolean buscaPorId(Long id) {
+		return false;
+	}
+
+
 	
 	
 }

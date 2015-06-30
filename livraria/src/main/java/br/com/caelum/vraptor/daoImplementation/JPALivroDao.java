@@ -63,6 +63,23 @@ public class JPALivroDao implements LivroDao {
 	}
 
 
+	public boolean buscaPorId(Long id) {
+		
+		try {
+			this.manager.getTransaction().begin();
+					manager.createQuery("select l from Livro l where l.id = :id",Livro.class)
+					.setParameter("id", id)
+					.getSingleResult();
+			return true;
+			
+		} catch (NoResultException e) {
+				
+				return false;
+		}
+		
+	}
+
+
 
 
 }

@@ -33,6 +33,10 @@ public class UmaEstanteNoBancoDeDados implements Estante{
 		return this.dao.buscaPorIsbn(isbn);
 	}
 
+	public boolean buscaPorId(Long id) {
+		return this.dao.buscaPorId(id);
+	}
+
 	
 	
 

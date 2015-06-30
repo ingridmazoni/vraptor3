@@ -3,17 +3,19 @@ package br.com.caelum.vraptor.validation;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.entity.Livro;
 import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.repository.Estante;
 import br.com.caelum.vraptor.validator.I18nMessage;
 
 @Component
 public class ValidatorLivros {
 	
 	private Validator validador;
-	private 
+	private Estante estante;
 	
-	ValidatorLivros(Validator validator) {
+	ValidatorLivros(Validator validator,Estante estante) {
 		
 		this.validador=validator;
+		this.estante=estante;
 	}
 	
 	
@@ -21,10 +23,10 @@ public class ValidatorLivros {
 	public Validator validaLivros(Livro livro){
 		this.validador.validate(livro);
 		
-			if(livro.getTitulo()==null){
-				validador.add(new I18nMessage("Título", "campo.obrigatorio", "título"));
-				
-			}
+		if(estante.buscaPorId(livro.getId())==false){
+			validador.add(new I18nMessage("livro", "nao.existe", "ID"));
+		}
+		
 	
 		return validador;
 	}

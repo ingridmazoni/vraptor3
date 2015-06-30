@@ -9,5 +9,6 @@ public interface Estante {
 	void guarda(Livro livro);
 	List<Livro> todosOsLivros();
 	Livro buscaPorIsbn(String isbn);
+	boolean buscaPorId(Long id);
 
 }
