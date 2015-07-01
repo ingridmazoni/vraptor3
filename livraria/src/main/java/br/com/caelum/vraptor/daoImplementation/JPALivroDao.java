@@ -56,6 +56,7 @@ public class JPALivroDao implements LivroDao {
 			return	manager.createQuery("select l from Livro l where l.isbn = :isbn",Livro.class)
 					.setParameter("isbn", isbn)
 					.getSingleResult();
+			
 		} catch (NoResultException e) {
 				
 				return null;
@@ -70,6 +71,7 @@ public class JPALivroDao implements LivroDao {
 					manager.createQuery("select l from Livro l where l.id = :id",Livro.class)
 					.setParameter("id", id)
 					.getSingleResult();
+			this.manager.close();		
 			return true;
 			
 		} catch (NoResultException e) {

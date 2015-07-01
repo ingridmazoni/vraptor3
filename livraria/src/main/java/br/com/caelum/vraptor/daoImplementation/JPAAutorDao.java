@@ -26,6 +26,7 @@ public class JPAAutorDao implements AutorDao {
 			this.manager.getTransaction().begin();
 			this.manager.persist(autor);
 			this.manager.getTransaction().commit();
+			
 		} else {
 			this.manager.getTransaction().begin();
 			this.manager.merge(autor);
