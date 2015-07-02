@@ -2,6 +2,11 @@ package br.com.caelum.vraptor.controller;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Patch;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Livro;
@@ -24,6 +29,7 @@ public class LivrosController {
 	public void formulario() {}
 	
 	
+	@Post("/livros")
 	public void salva(Livro livro) {
 		validatorLivros.validaLivros(livro).onErrorRedirectTo(this).formulario();
 		estante.guarda(livro);
@@ -32,6 +38,7 @@ public class LivrosController {
 		}
 	
 	
+	@Get("/livros")
 	public List<Livro> lista() {
 		
 		return estante.todosOsLivros();
@@ -39,13 +46,14 @@ public class LivrosController {
 	}
 	
 	
+	@Get @Path(value="/livros/{isbn}")
 	public void edita(String isbn) {
 		Livro livroEncontrado = estante.buscaPorIsbn(isbn);
 		if (livroEncontrado == null) {
 			result.notFound();
 		} else {
 			result.include(livroEncontrado);
-			result.of(this).formulario();
+			result.of(this).formulario();;;
 		}
 	}
 

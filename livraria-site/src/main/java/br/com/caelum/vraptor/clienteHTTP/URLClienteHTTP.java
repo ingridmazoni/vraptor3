@@ -8,9 +8,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import br.com.caelum.vraptor.exception.ServidorIndisponivelException;
+import br.com.caelum.vraptor.ioc.Component;
 
 import com.google.common.io.CharStreams;
 
+@Component
 public class URLClienteHTTP implements ClienteHTTP{
 
 	public String get(String url) {
