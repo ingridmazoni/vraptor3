@@ -23,7 +23,7 @@ public class ValidatorLivros {
 	public Validator validaLivros(Livro livro){
 		this.validador.validate(livro);
 		
-		if(estante.buscaPorId(livro.getId())==false){
+		if(livro.getId()!=null && estante.buscaPorId(livro.getId())==false){
 			validador.add(new I18nMessage("livro", "nao.existe", "ID"));
 		}
 		

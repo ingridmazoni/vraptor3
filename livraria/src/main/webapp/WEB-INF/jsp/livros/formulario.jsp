@@ -20,7 +20,7 @@ ${error.message}
 </c:forEach>
 </ul>
 
-	<form  action="<c:url value="/livros/salva"/>" method="post">
+	<form  action="<c:url value="/livros"/>" method="post">
 		<h2>Formulário de cadastro de livros</h2>
 		<ul>
 			<li>Titulo: <br/>	

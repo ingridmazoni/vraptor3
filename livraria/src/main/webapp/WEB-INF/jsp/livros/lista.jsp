@@ -14,7 +14,7 @@
 	<c:forEach items="${livroList}" var="livro">
 		<li>
 				${livro.titulo} - ${livro.descricao}
-				<a href="${linkTo[LivrosController].edita[livro.isbn]}">Modificar</a>
+				<a href="/livro/${livro.isbn}">Modificar</a>
 		</li>
 	</c:forEach>
 

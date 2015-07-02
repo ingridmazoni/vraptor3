@@ -46,9 +46,9 @@ public class LivrosController {
 	}
 	
 	
-	@Get @Path(value="/livros/{isbn}")
-	public void edita(String isbn) {
-		Livro livroEncontrado = estante.buscaPorIsbn(isbn);
+	@Get("/livro/{livro.isbn}")
+	public void edita(Livro livro) {
+		Livro livroEncontrado = estante.buscaPorIsbn(livro.getIsbn());
 		if (livroEncontrado == null) {
 			result.notFound();
 		} else {
