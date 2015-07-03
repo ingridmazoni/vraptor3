@@ -21,11 +21,11 @@ public class JPALivroDao implements LivroDao {
 	public JPALivroDao(EntityManager manager) {
 		super();
 		this.manager = manager;
+		this.manager.getTransaction().begin();
 	}
 
 
 	public List<Livro> todos() {
-		this.manager.getTransaction().begin();
 		return this.manager
 				.createQuery("select l from Livro l", Livro.class)
 				.getResultList();
@@ -38,13 +38,13 @@ public class JPALivroDao implements LivroDao {
 
 	public void adiciona(Livro livro) {
 		if (livro.getId() == null) {
-			this.manager.getTransaction().begin();
 			this.manager.persist(livro);
 			this.manager.getTransaction().commit();
+		
 		} else {
-			this.manager.getTransaction().begin();
 			this.manager.merge(livro);
 			this.manager.getTransaction().commit();
+		
 		}
 		
 	}
@@ -52,11 +52,10 @@ public class JPALivroDao implements LivroDao {
 
 	public Livro buscaPorIsbn(String isbn) {
 		try {
-			this.manager.getTransaction().begin();
 			return	manager.createQuery("select l from Livro l where l.isbn = :isbn",Livro.class)
 					.setParameter("isbn", isbn)
 					.getSingleResult();
-			
+					
 		} catch (NoResultException e) {
 				
 				return null;
@@ -67,11 +66,10 @@ public class JPALivroDao implements LivroDao {
 	public boolean buscaPorId(Long id) {
 		
 		try {
-			this.manager.getTransaction().begin();
-					manager.createQuery("select l from Livro l where l.id = :id",Livro.class)
+				manager.createQuery("select l from Livro l where l.id = :id",Livro.class)
 					.setParameter("id", id)
 					.getSingleResult();
-			this.manager.close();		
+				
 			return true;
 			
 		} catch (NoResultException e) {

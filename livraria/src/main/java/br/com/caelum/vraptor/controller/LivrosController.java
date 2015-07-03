@@ -26,10 +26,11 @@ public class LivrosController {
 	}
 
 	
+	@Path(value = { "/salvaLivro"}, priority=Path.LOWEST)
 	public void formulario() {}
 	
 	
-	@Post("/livros")
+	@Post("/salvaLivro")
 	public void salva(Livro livro) {
 		validatorLivros.validaLivros(livro).onErrorRedirectTo(this).formulario();
 		estante.guarda(livro);
@@ -38,7 +39,7 @@ public class LivrosController {
 		}
 	
 	
-	@Get("/livros")
+	@Get("/listaLivros")
 	public List<Livro> lista() {
 		
 		return estante.todosOsLivros();
@@ -46,14 +47,14 @@ public class LivrosController {
 	}
 	
 	
-	@Get("/livro/{livro.isbn}")
+	@Get("/editaLivro/{livro.isbn}")
 	public void edita(Livro livro) {
 		Livro livroEncontrado = estante.buscaPorIsbn(livro.getIsbn());
 		if (livroEncontrado == null) {
 			result.notFound();
 		} else {
 			result.include(livroEncontrado);
-			result.of(this).formulario();;;
+			result.of(this).formulario();
 		}
 	}
 

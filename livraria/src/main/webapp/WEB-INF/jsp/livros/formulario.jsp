@@ -20,7 +20,7 @@ ${error.message}
 </c:forEach>
 </ul>
 
-	<form  action="<c:url value="/livros"/>" method="post">
+	<form  method="post" action="<c:url value="/salvaLivro"/>" >
 		<h2>Formulário de cadastro de livros</h2>
 		<ul>
 			<li>Titulo: <br/>	
@@ -34,6 +34,7 @@ ${error.message}
 			<li>Data de publicacao: <br/>
 						<input type="text" name="livro.dataPublicacao" value="${livro.dataPublicacao}"/>
 						<input type="hidden" name="livro.id" value="${livro.id}" />
+						
 			</li>
 						
 						
