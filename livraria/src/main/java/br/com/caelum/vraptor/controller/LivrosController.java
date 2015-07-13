@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Livro;
+import br.com.caelum.vraptor.interceptadores.Transacional;
 import br.com.caelum.vraptor.repository.Estante;
 import br.com.caelum.vraptor.validation.ValidatorLivros;
 
@@ -29,7 +30,7 @@ public class LivrosController {
 	@Path(value = { "/salvaLivro"}, priority=Path.LOWEST)
 	public void formulario() {}
 	
-	
+	/*@Transacional*/
 	@Post("/salvaLivro")
 	public void salva(Livro livro) {
 		validatorLivros.validaLivros(livro).onErrorRedirectTo(this).formulario();
