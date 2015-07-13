@@ -2,6 +2,8 @@ package br.com.caelum.vraptor.controller;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Usuario;
@@ -24,16 +26,16 @@ public class UsuarioController {
 	 
 	 
 	 public void verificaLogin(Usuario usuario){
-		 
-		 if(repositoryUser.buscaPorUsuarioSenha(usuario)){
-			 result.of(LivrosController.class).formulario();
+		 try{
+			 repositoryUser.buscaPorUsuarioSenha(usuario);
+				 result.of(LivrosController.class).formulario();
+			
 		 }
-		 else{
+		 catch(NoResultException erro){
 			 result.include("error","Usuário ou senha estão incorretos");
 			 result.of(this).telaLogin();
-			 
 		 }
-		 
+			 
 	 }
 	 
 	 
