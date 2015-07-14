@@ -1,48 +1,54 @@
 package br.com.caelum.vraptor.controller;
 
-import java.util.List;
-
-import javax.persistence.NoResultException;
-
-import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.entity.Usuario;
-import br.com.caelum.vraptor.repository.RepositoryUsuario;
+import br.com.caelum.vraptor.estante.UsuarioLogado;
+import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
+import br.com.caelum.vraptor.validator.I18nMessage;
 
-@Resource
+
 public class UsuarioController {
 	
-	 private RepositoryUsuario repositoryUser;
+	 private RegistroDeUsuarios usuarios;
+	 private UsuarioLogado logado;
 	 private Result result;
+	 private Validator validator;
+	
 	 
-	 public UsuarioController(RepositoryUsuario repositoryUser, Result result) {
-	        this.repositoryUser = repositoryUser;
-	        this.result = result;
-	    }
-	 
-	 public void telaLogin() {
-	    
-	 }
-	 
-	 
-	 public void verificaLogin(Usuario usuario){
+	 public UsuarioController(RegistroDeUsuarios usuarios,UsuarioLogado logado,
+			 Result result, Validator validator) {
 		 
-		 try{
-			 if(repositoryUser.buscaPorUsuarioSenha(usuario)){
-				 result.of(LivrosController.class).formulario();
-			}
-		 }
-		 catch(NoResultException erro){
-			 result.of(this).telaLogin();
-		 }
-			 
+		 this.usuarios = usuarios;
+		 this.logado = logado;
+		 this.result = result;
+		 this.validator=validator;
+		
+	}
+	 	 
+	 @Get("/login")
+	 public void formulario() {}
+	
+	
+	 @Post("/login")
+	 public void login(String login, String senha) {
+		 Usuario usuario = usuarios.comLoginESenha(login, senha);
+		 	if (usuario == null) {
+		 			validator.add(new I18nMessage("usuario","login.ou.senha.invalidos"));
+		 	}
+		 		
+		 	validator.onErrorRedirectTo(this).formulario();
+		 	logado.loga(usuario);
+	
+		 	result.redirectTo(LivrosController.class).lista();
 	 }
-	 
-	 
-
 	
-	
-	
-	
+	 @Get("/logout")
+	 public void logout() {
+		 logado.desloga();
+		 result.redirectTo(this).formulario();
+	 }
 
 }

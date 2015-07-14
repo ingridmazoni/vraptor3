@@ -9,8 +9,6 @@ import br.com.caelum.vraptor.entity.Livro;
 import br.com.caelum.vraptor.entity.Pais;
 import br.com.caelum.vraptor.repository.RepositoryAutor;
 import br.com.caelum.vraptor.validation.ValidatorAutor;
-import br.com.caelum.vraptor.validation.ValidatorLivros;
-
 
 
 @Resource

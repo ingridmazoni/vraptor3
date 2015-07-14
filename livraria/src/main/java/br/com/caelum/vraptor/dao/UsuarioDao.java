@@ -4,6 +4,6 @@ import br.com.caelum.vraptor.entity.Usuario;
 
 public interface UsuarioDao {
 	
-	public boolean buscaPorUsuarioSenha(Usuario usuario);
+	public Usuario buscaPorUsuarioSenha(String login, String senha);
 
 }

@@ -23,13 +23,13 @@ public class JPAUsuarioDao implements UsuarioDao {
 	}
 
 
-public boolean buscaPorUsuarioSenha(Usuario usuario) {
+public Usuario buscaPorUsuarioSenha(String login, String senha) {
 		
 		
 	return manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha",Usuario.class)
-					.setParameter("login", usuario.getLogin())
-					.setParameter("senha", usuario.getSenha())
-					.getSingleResult() != null;
+					.setParameter("login", login)
+					.setParameter("senha", senha)
+					.getSingleResult();
 			
 	
 	}

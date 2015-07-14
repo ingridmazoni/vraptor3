@@ -5,11 +5,11 @@ import javax.enterprise.context.SessionScoped;
 import br.com.caelum.vraptor.dao.UsuarioDao;
 import br.com.caelum.vraptor.entity.Usuario;
 import br.com.caelum.vraptor.ioc.Component;
-import br.com.caelum.vraptor.repository.RepositoryUsuario;
+import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 
 @Component
 @SessionScoped
-public class UsuarioLogado implements RepositoryUsuario{
+public class UsuarioLogado implements RegistroDeUsuarios{
 
 	private UsuarioDao usuarioDao;
 	private Usuario usuario;
@@ -36,8 +36,8 @@ public class UsuarioLogado implements RepositoryUsuario{
 		this.usuario = null;
 	}
 
-	public boolean buscaPorUsuarioSenha(Usuario usuario) {
-		return usuarioDao.buscaPorUsuarioSenha(usuario);
+	public Usuario comLoginESenha(String login, String senha) {
+		return usuarioDao.buscaPorUsuarioSenha(login, senha);
 	}
 
 }
