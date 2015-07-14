@@ -26,13 +26,13 @@ public class UsuarioController {
 	 
 	 
 	 public void verificaLogin(Usuario usuario){
+		 
 		 try{
-			 repositoryUser.buscaPorUsuarioSenha(usuario);
+			 if(repositoryUser.buscaPorUsuarioSenha(usuario)){
 				 result.of(LivrosController.class).formulario();
-			
+			}
 		 }
 		 catch(NoResultException erro){
-			 result.include("error","Usuário ou senha estão incorretos");
 			 result.of(this).telaLogin();
 		 }
 			 

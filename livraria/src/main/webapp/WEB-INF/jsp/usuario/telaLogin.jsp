@@ -8,7 +8,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body style="background-color:MistyRose">
-${error.message}
+<c:if test="${not empty mensagem}">
+		<p class="mensagem">${mensagem}</p>
+</c:if>
 	<form  method="post" action="<c:url value="/usuario/verificaLogin"/>" >
 		<h2>Tela de Login</h2>
 		<ul>
