@@ -2,6 +2,7 @@ package br.com.caelum.vraptor.controller;
 
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.entity.Usuario;
@@ -9,8 +10,8 @@ import br.com.caelum.vraptor.estante.UsuarioLogado;
 import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 import br.com.caelum.vraptor.validator.I18nMessage;
 
-
-public class UsuarioController {
+@Resource
+public class LoginController {
 	
 	 private RegistroDeUsuarios usuarios;
 	 private UsuarioLogado logado;
@@ -18,7 +19,7 @@ public class UsuarioController {
 	 private Validator validator;
 	
 	 
-	 public UsuarioController(RegistroDeUsuarios usuarios,UsuarioLogado logado,
+	 public LoginController(RegistroDeUsuarios usuarios,UsuarioLogado logado,
 			 Result result, Validator validator) {
 		 
 		 this.usuarios = usuarios;

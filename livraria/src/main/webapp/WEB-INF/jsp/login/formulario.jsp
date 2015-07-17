@@ -11,14 +11,14 @@
 <c:if test="${not empty mensagem}">
 		<p class="mensagem">${mensagem}</p>
 </c:if>
-	<form  method="post" action="<c:url value="/usuario/verificaLogin"/>" >
+	<form  method="post" action="<c:url value="/login"/>" >
 		<h2>Tela de Login</h2>
 		<ul>
 			<li>Login: <br/>	
-					<input type="text" name="usuario.login" value="${usuario.login}"/></li>
+					<input type="text" name="login" value="${login}"/></li>
 			
 			<li>Senha: <br/>
-						<input type="text" name="usuario.senha" value="${usuario.senha}"/></li>
+						<input type="text" name="senha" value="${senha}"/></li>
 				
 						
 		</ul>

@@ -3,14 +3,11 @@ package br.com.caelum.vraptor.controller;
 import java.util.List;
 
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Patch;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Livro;
-import br.com.caelum.vraptor.interceptadores.Transacional;
 import br.com.caelum.vraptor.repository.Estante;
 import br.com.caelum.vraptor.validation.ValidatorLivros;
 
@@ -60,10 +57,10 @@ public class LivrosController {
 	}
 
 
-	private void naoEncontrado() {
+	/*private void naoEncontrado() {
 	
 		
-	}
+	}*/
 	
 	
 	
