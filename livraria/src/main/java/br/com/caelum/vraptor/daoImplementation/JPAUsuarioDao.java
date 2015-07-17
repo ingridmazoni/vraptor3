@@ -24,14 +24,14 @@ public class JPAUsuarioDao implements UsuarioDao {
 
 
 public Usuario buscaPorUsuarioSenha(String login, String senha) {
+		Usuario u=null;
 		
-		
-	return manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha",Usuario.class)
+	u=manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha",Usuario.class)
 					.setParameter("login", login)
 					.setParameter("senha", senha)
 					.getSingleResult();
 			
-	
+	return u;
 	}
 	
 }

@@ -1,5 +1,7 @@
 package br.com.caelum.vraptor.controller;
 
+import javax.persistence.NoResultException;
+
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -35,15 +37,20 @@ public class LoginController {
 	
 	 @Post("/login")
 	 public void login(String login, String senha) {
+		 
+		 try{
 		 Usuario usuario = usuarios.comLoginESenha(login, senha);
-		 	if (usuario == null) {
-		 			validator.add(new I18nMessage("usuario","login.ou.senha.invalidos"));
+		 	if (usuario != null) {
+		 		logado.loga(usuario);
+		 		result.redirectTo(LivrosController.class).lista();
 		 	}
-		 		
-		 	validator.onErrorRedirectTo(this).formulario();
-		 	logado.loga(usuario);
-	
-		 	result.redirectTo(LivrosController.class).lista();
+		 	 	
+		 }
+		 catch(NoResultException erro){
+			 validator.add(new I18nMessage("usuario","login.ou.senha.invalidos"));
+			 validator.onErrorRedirectTo(this).formulario();
+		 }
+		 	
 	 }
 	
 	 @Get("/logout")

@@ -1,6 +1,6 @@
 package br.com.caelum.vraptor.interceptadores;
 
-/*import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.LoginController;
@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.estante.UsuarioLogado;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 import br.com.caelum.vraptor.view.Results;
 
-@Intercepts(after=AutorizacaoInterceptor.class)
+/*@Intercepts(after=AutorizacaoInterceptor.class)
 	public class AutorizacaoInterceptor implements Interceptor{
 	private UsuarioLogado usuario;
 	private Result result;
