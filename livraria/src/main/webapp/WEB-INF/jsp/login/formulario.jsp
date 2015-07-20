@@ -8,9 +8,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body style="background-color:MistyRose">
-<c:if test="${not empty mensagem}">
-		<p class="mensagem">${mensagem}</p>
-</c:if>
+<ul class="errors">
+	<c:forEach items="${errors}" var="error">
+		${error.message}
+	</c:forEach>
+</ul>
 	<form  method="post" action="<c:url value="/login"/>" >
 		<h2>Tela de Login</h2>
 		<ul>
@@ -18,7 +20,7 @@
 					<input type="text" name="login" value="${login}"/></li>
 			
 			<li>Senha: <br/>
-						<input type="text" name="senha" value="${senha}"/></li>
+						<input type="password" name="senha" value="${senha}"/></li>
 				
 						
 		</ul>

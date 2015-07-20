@@ -9,22 +9,24 @@ import javax.persistence.Persistence;
 
 import br.com.caelum.vraptor.dao.LivroDao;
 import br.com.caelum.vraptor.entity.Livro;
+import br.com.caelum.vraptor.interceptadores.Transacional;
 import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.ioc.RequestScoped;
 
 
 @Component
+@RequestScoped
 public class JPALivroDao implements LivroDao {
 	
 	private EntityManager manager;
 	
 	
 	public JPALivroDao(EntityManager manager) {
-		super();
 		this.manager = manager;
-		this.manager.getTransaction().begin();
+	
 	}
 
-
+	@Transacional
 	public List<Livro> todos() {
 		return this.manager
 				.createQuery("select l from Livro l", Livro.class)
@@ -35,21 +37,21 @@ public class JPALivroDao implements LivroDao {
 	
 
 
-
+	@Transacional
 	public void adiciona(Livro livro) {
 		if (livro.getId() == null) {
 			this.manager.persist(livro);
-			this.manager.getTransaction().commit();
+		
 		
 		} else {
 			this.manager.merge(livro);
-			this.manager.getTransaction().commit();
+			
 		
 		}
 		
 	}
 
-
+	@Transacional
 	public Livro buscaPorIsbn(String isbn) {
 		try {
 			return	manager.createQuery("select l from Livro l where l.isbn = :isbn",Livro.class)

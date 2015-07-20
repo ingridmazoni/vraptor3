@@ -1,16 +1,15 @@
-/*package br.com.caelum.vraptor.interceptadores;
+package br.com.caelum.vraptor.interceptadores;
 import javax.persistence.EntityManager;
 
 import br.com.caelum.vraptor.InterceptionException;
 import br.com.caelum.vraptor.Intercepts;
-import br.com.caelum.vraptor.Lazy;
 import br.com.caelum.vraptor.core.InterceptorStack;
-import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.ioc.RequestScoped;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 
 
 @Intercepts
-@Component
+@RequestScoped
 public class TransacoesInterceptor implements Interceptor{
 	
 	private EntityManager manager;
@@ -42,4 +41,3 @@ public class TransacoesInterceptor implements Interceptor{
 }
 
 
-*/

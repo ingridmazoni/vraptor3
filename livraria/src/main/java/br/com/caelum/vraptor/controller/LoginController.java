@@ -1,7 +1,5 @@
 package br.com.caelum.vraptor.controller;
 
-import javax.persistence.NoResultException;
-
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -9,10 +7,13 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.entity.Usuario;
 import br.com.caelum.vraptor.estante.UsuarioLogado;
+import br.com.caelum.vraptor.interceptadores.Transacional;
+import br.com.caelum.vraptor.ioc.SessionScoped;
 import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 import br.com.caelum.vraptor.validator.I18nMessage;
 
 @Resource
+@SessionScoped
 public class LoginController {
 	
 	 private RegistroDeUsuarios usuarios;
@@ -35,27 +36,23 @@ public class LoginController {
 	 public void formulario() {}
 	
 	
+	 
 	 @Post("/login")
 	 public void login(String login, String senha) {
 		 
-		 try{
 		 Usuario usuario = usuarios.comLoginESenha(login, senha);
-		 	if (usuario != null) {
-		 		logado.loga(usuario);
-		 		result.redirectTo(LivrosController.class).lista();
-		 	}
-		 	 	
+		 if (usuario == null) {
+			 validator.add(new I18nMessage("usuario", "login.ou.senha.invalidos"));
 		 }
-		 catch(NoResultException erro){
-			 validator.add(new I18nMessage("usuario","login.ou.senha.invalidos"));
-			 validator.onErrorRedirectTo(this).formulario();
-		 }
+		 validator.onErrorRedirectTo(this).formulario();
+		 usuarios.loga(usuario);
+		 result.redirectTo(LivrosController.class).lista();
 		 	
 	 }
 	
 	 @Get("/logout")
 	 public void logout() {
-		 logado.desloga();
+		 usuarios.desloga();
 		 result.redirectTo(this).formulario();
 	 }
 

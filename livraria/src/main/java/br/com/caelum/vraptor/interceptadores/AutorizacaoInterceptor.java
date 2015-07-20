@@ -6,16 +6,19 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.LoginController;
 import br.com.caelum.vraptor.core.InterceptorStack;
 import br.com.caelum.vraptor.estante.UsuarioLogado;
+import br.com.caelum.vraptor.ioc.SessionScoped;
+import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 import br.com.caelum.vraptor.view.Results;
 
-/*@Intercepts(after=AutorizacaoInterceptor.class)
+/*@Intercepts(after=AutenticacaoInterceptor.class)
+@SessionScoped
 	public class AutorizacaoInterceptor implements Interceptor{
-	private UsuarioLogado usuario;
+	private RegistroDeUsuarios usuarios;
 	private Result result;
 	
-	public AutorizacaoInterceptor(UsuarioLogado usuario, Result result) {
-		this.usuario = usuario;
+	public AutorizacaoInterceptor(RegistroDeUsuarios usuarios, Result result) {
+		this.usuarios = usuarios;
 		this.result = result;
 	}
 	public boolean accepts(ResourceMethod method) {
@@ -31,6 +34,6 @@ import br.com.caelum.vraptor.view.Results;
 	}
 	
 	private boolean podeAcessar(ResourceMethod method) {
-		return method.containsAnnotation(Get.class) || usuario.getUsuario().isAdmin();
+		return method.containsAnnotation(Get.class) || usuarios.getUsuario().isAdmin();
 	}
 }*/

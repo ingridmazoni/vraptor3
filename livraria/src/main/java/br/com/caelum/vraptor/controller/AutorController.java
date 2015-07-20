@@ -7,11 +7,14 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Autor;
 import br.com.caelum.vraptor.entity.Livro;
 import br.com.caelum.vraptor.entity.Pais;
+import br.com.caelum.vraptor.interceptadores.Transacional;
+import br.com.caelum.vraptor.ioc.RequestScoped;
 import br.com.caelum.vraptor.repository.RepositoryAutor;
 import br.com.caelum.vraptor.validation.ValidatorAutor;
 
 
 @Resource
+@RequestScoped
 public class AutorController {
 	private RepositoryAutor repositoryAutor;
 	private Result result;
@@ -32,6 +35,7 @@ public class AutorController {
 	}
 	
 	
+
 	public void salva(Autor autor, Livro livro) {
 		validatorAutor.validaAutor(autor,livro).onErrorRedirectTo(this).formulario();
 		autor.setUltimoLivro(livro);
@@ -40,14 +44,14 @@ public class AutorController {
 		result.redirectTo(this).lista();
 		}
 	
-	
+
 	public List<Autor> lista() {
 		
 		return repositoryAutor.todosOsAutores();
 			
 	}
 	
-	
+
 	public void edita(Long id) {
 		Autor autorEncontrado = repositoryAutor.buscaPorId(id);
 		if (autorEncontrado == null) {

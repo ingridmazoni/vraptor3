@@ -4,17 +4,19 @@ import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.LoginController;
 import br.com.caelum.vraptor.core.InterceptorStack;
-import br.com.caelum.vraptor.estante.UsuarioLogado;
+import br.com.caelum.vraptor.ioc.SessionScoped;
+import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 
 /*@Intercepts
+@SessionScoped
 public class AutenticacaoInterceptor implements Interceptor{
-		private UsuarioLogado usuario;
+		private RegistroDeUsuarios usuarios;
 		private Result result;
 	
 	
-		public AutenticacaoInterceptor(UsuarioLogado usuario, Result result) {
-			this.usuario = usuario;
+		public AutenticacaoInterceptor(RegistroDeUsuarios usuarios, Result result) {
+			this.usuarios = usuarios;
 			this.result = result;
 		}
 		
@@ -23,7 +25,7 @@ public class AutenticacaoInterceptor implements Interceptor{
 		}
 		
 		public void intercept(InterceptorStack stack,ResourceMethod method,Object controller) {
-				if (usuario.isLogado()) {
+				if (usuarios.isLogado()) {
 					stack.next(method, controller);
 				} else {
 					result.redirectTo(LoginController.class).formulario();

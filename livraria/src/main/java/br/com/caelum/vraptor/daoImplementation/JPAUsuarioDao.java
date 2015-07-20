@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import br.com.caelum.vraptor.dao.UsuarioDao;
 import br.com.caelum.vraptor.entity.Livro;
 import br.com.caelum.vraptor.entity.Usuario;
+import br.com.caelum.vraptor.interceptadores.Transacional;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
@@ -17,20 +18,29 @@ public class JPAUsuarioDao implements UsuarioDao {
 	
 	
 	public JPAUsuarioDao(EntityManager manager) {
-		super();
 		this.manager = manager;
-		this.manager.getTransaction().begin();
+	
+			
 	}
 
 
+@Transacional	
 public Usuario buscaPorUsuarioSenha(String login, String senha) {
-		Usuario u=null;
 		
-	u=manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha",Usuario.class)
+		Usuario u;
+		
+		try{
+		
+			u=manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha",Usuario.class)
 					.setParameter("login", login)
 					.setParameter("senha", senha)
 					.getSingleResult();
 			
+		}
+		catch(NoResultException erro){
+			u=null;
+		}
+		
 	return u;
 	}
 	
