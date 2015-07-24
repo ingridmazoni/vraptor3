@@ -2,6 +2,9 @@ package br.com.caelum.vraptor.controller;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Autor;
@@ -28,13 +31,14 @@ public class AutorController {
 		
 	}
 	
+	@Path(value = { "/salvaAutor"}, priority=Path.LOWEST)
 	public void formulario() {
 		result.include("listaPaises",Pais.values());
 		
 	}
 	
 	
-
+	@Post("/salvaAutor")
 	public void salva(Autor autor, Livro livro) {
 		validatorAutor.validaAutor(autor,livro).onErrorRedirectTo(this).formulario();
 		autor.setUltimoLivro(livro);
@@ -43,16 +47,17 @@ public class AutorController {
 		result.redirectTo(this).lista();
 		}
 	
-
+	
+	@Get("/listaAutor")
 	public List<Autor> lista() {
 		
 		return repositoryAutor.todosOsAutores();
 			
 	}
 	
-
-	public void edita(Long id) {
-		Autor autorEncontrado = repositoryAutor.buscaPorId(id);
+	@Get("/editaAutor/{autor.id}")
+	public void edita(Autor autor) {
+		Autor autorEncontrado = repositoryAutor.buscaPorId(autor.getId());
 		if (autorEncontrado == null) {
 			result.notFound();
 		} else {
