@@ -8,7 +8,6 @@ import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 
 @Component
-@SessionScoped
 public class UsuarioLogado implements RegistroDeUsuarios{
 
 	private UsuarioDao usuarioDao;

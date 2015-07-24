@@ -12,7 +12,6 @@ import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.RequestScoped;
 
 @Component
-@RequestScoped
 public class JPAAutorDao implements AutorDao {
 	
 	private EntityManager manager;
@@ -23,19 +22,21 @@ public class JPAAutorDao implements AutorDao {
 		this.manager = manager;
 	}
 	
-	@Transacional
+	
 	public void adiciona(Autor autor) {
+		this.manager.getTransaction().begin();
 		if (autor.getId() == null) {
+			
 			this.manager.persist(autor);
 					
 		} else {
 			this.manager.merge(autor);
 		
 		}
-		
+		this.manager.getTransaction().commit();
 	}
 
-	@Transacional
+	
 	public List<Autor> todos() {
 		return this.manager
 				.createQuery("select a from Autor a", Autor.class)
@@ -44,7 +45,7 @@ public class JPAAutorDao implements AutorDao {
 		
 	}
 
-	@Transacional
+	
 	public Autor buscaPorId(Long id) {
 		try {
 			return	manager.createQuery("select a from Autor a where a.id = :id",Autor.class)

@@ -8,13 +8,11 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Livro;
-import br.com.caelum.vraptor.ioc.RequestScoped;
 import br.com.caelum.vraptor.repository.Estante;
 import br.com.caelum.vraptor.validation.ValidatorLivros;
 
 
 @Resource
-@RequestScoped
 public class LivrosController {
 	private  Estante estante;
 	private Result result;

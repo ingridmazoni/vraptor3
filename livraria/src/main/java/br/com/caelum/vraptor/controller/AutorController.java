@@ -14,7 +14,6 @@ import br.com.caelum.vraptor.validation.ValidatorAutor;
 
 
 @Resource
-@RequestScoped
 public class AutorController {
 	private RepositoryAutor repositoryAutor;
 	private Result result;

@@ -11,7 +11,6 @@ import br.com.caelum.vraptor.interceptadores.Transacional;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
-@SessionScoped
 public class JPAUsuarioDao implements UsuarioDao {
 	
 	private EntityManager manager;
@@ -24,7 +23,7 @@ public class JPAUsuarioDao implements UsuarioDao {
 	}
 
 
-@Transacional	
+
 public Usuario buscaPorUsuarioSenha(String login, String senha) {
 		
 		Usuario u;

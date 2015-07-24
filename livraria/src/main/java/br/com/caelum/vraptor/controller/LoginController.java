@@ -13,7 +13,6 @@ import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 import br.com.caelum.vraptor.validator.I18nMessage;
 
 @Resource
-@SessionScoped
 public class LoginController {
 	
 	 private RegistroDeUsuarios usuarios;

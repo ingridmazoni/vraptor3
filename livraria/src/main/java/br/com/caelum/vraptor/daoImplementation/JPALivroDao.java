@@ -15,7 +15,6 @@ import br.com.caelum.vraptor.ioc.RequestScoped;
 
 
 @Component
-@RequestScoped
 public class JPALivroDao implements LivroDao {
 	
 	private EntityManager manager;
@@ -26,7 +25,7 @@ public class JPALivroDao implements LivroDao {
 	
 	}
 
-	@Transacional
+
 	public List<Livro> todos() {
 		return this.manager
 				.createQuery("select l from Livro l", Livro.class)
@@ -37,9 +36,12 @@ public class JPALivroDao implements LivroDao {
 	
 
 
-	@Transacional
+	
 	public void adiciona(Livro livro) {
+		this.manager.getTransaction().begin();
+		
 		if (livro.getId() == null) {
+		
 			this.manager.persist(livro);
 		
 		
@@ -48,10 +50,11 @@ public class JPALivroDao implements LivroDao {
 			
 		
 		}
+		this.manager.getTransaction().commit();
 		
 	}
 
-	@Transacional
+	
 	public Livro buscaPorIsbn(String isbn) {
 		try {
 			return	manager.createQuery("select l from Livro l where l.isbn = :isbn",Livro.class)

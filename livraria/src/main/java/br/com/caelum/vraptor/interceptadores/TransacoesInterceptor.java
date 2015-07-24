@@ -4,12 +4,10 @@ import javax.persistence.EntityManager;
 import br.com.caelum.vraptor.InterceptionException;
 import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.core.InterceptorStack;
-import br.com.caelum.vraptor.ioc.RequestScoped;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 
 
 @Intercepts
-@RequestScoped
 public class TransacoesInterceptor implements Interceptor{
 	
 	private EntityManager manager;
@@ -25,16 +23,16 @@ public class TransacoesInterceptor implements Interceptor{
 	}
 	
 	public void intercept(InterceptorStack stack,ResourceMethod method,Object controller) throws InterceptionException{
-		try {
+		/*try {*/
 			manager.getTransaction().begin();
 			stack.next(method, controller);
 			manager.getTransaction().commit();
-		}
+		/*}
 		finally {
 				if (manager.getTransaction().isActive()) {
 						manager.getTransaction().rollback();
 				}
-		}
+		}*/
 	}
 
 

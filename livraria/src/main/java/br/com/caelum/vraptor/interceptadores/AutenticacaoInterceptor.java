@@ -4,12 +4,10 @@ import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.LoginController;
 import br.com.caelum.vraptor.core.InterceptorStack;
-import br.com.caelum.vraptor.ioc.SessionScoped;
 import br.com.caelum.vraptor.repository.RegistroDeUsuarios;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 
 /*@Intercepts
-@SessionScoped
 public class AutenticacaoInterceptor implements Interceptor{
 		private RegistroDeUsuarios usuarios;
 		private Result result;
