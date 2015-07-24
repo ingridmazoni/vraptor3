@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -35,16 +36,15 @@ public class Livro {
 	@Column(name="descricao")
 	private String descricao;
 	
-	@NotNull(message = "{campo.obrigatorio}")
-	@DecimalMin("0.0")
-	@Column(name="preco")
-	private BigDecimal preco;
+	@Embedded
+	private Dinheiro preco;
 	
 	@Temporal (TemporalType.DATE )
 	@Past(message = "{data.passado}")
 	@Column(name="dataPublicacao")
 	private Calendar dataPublicacao;
-		
+	
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -63,10 +63,10 @@ public class Livro {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	public BigDecimal getPreco() {
+	public Dinheiro getPreco() {
 		return preco;
 	}
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(Dinheiro preco) {
 		this.preco = preco;
 	}
 	public Calendar getDataPublicacao() {
