@@ -5,15 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body>
-<h3>Veja as últimas ofertas para você:</h3>
-<ul class="livros">
-		<c:forEach items="${livros}" var="livro">
-			<li class="livro">${livro.titulo} - R$ ${livro.preco}</li>
-		</c:forEach>
-</ul>
 
 </body>
 </html>
