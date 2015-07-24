@@ -12,7 +12,7 @@ import br.com.caelum.vraptor.repository.*;
 @Component
 public class UmaEstanteNoBancoDeDados implements Estante{
 	
-	private final LivroDao dao;
+	private LivroDao dao;
 	
 	public UmaEstanteNoBancoDeDados(LivroDao dao) {
 			this.dao = dao;
@@ -24,12 +24,10 @@ public class UmaEstanteNoBancoDeDados implements Estante{
 	}
 
 	public List<Livro> todosOsLivros() {
-	
 		return this.dao.todos();
 	}
 
 	public Livro buscaPorIsbn(String isbn) {
-		
 		return this.dao.buscaPorIsbn(isbn);
 	}
 

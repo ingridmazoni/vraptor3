@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.repository.RepositoryAutor;
 @Component
 public class AutorNoBanco implements RepositoryAutor {
 	
-	AutorDao daoAutor;
+	private AutorDao daoAutor;
 	
 	public AutorNoBanco(AutorDao autordao){
 		daoAutor=autordao;
@@ -22,12 +22,10 @@ public class AutorNoBanco implements RepositoryAutor {
 	}
 
 	public List<Autor> todosOsAutores() {
-		
 		return daoAutor.todos();
 	}
 
 	public Autor buscaPorId(Long id) {
-		
 		return daoAutor.buscaPorId(id);
 	}
 

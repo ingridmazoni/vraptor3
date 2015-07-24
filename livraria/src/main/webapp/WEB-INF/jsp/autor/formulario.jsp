@@ -27,7 +27,7 @@ ${error.message}
 					<input type="text" name="autor.nome" value="${autor.nome}"/></li>
 			<li>Data de Nascimento: <br/>
 						<input type="text" name="autor.dataNascimento" value="${autor.dataNascimento}"/></li>
-			<li>N�mero de Livros: <br/>
+			<li>Número de Livros: <br/>
 						<input type="text" name="autor.numeroDeLivros" value="${autor.numeroDeLivros}"/></li>
 			<li>Naturalidade: <br/>
 						<select name="autor.naturalidade">
