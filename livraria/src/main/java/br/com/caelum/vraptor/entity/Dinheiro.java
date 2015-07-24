@@ -1,6 +1,7 @@
 package br.com.caelum.vraptor.entity;
 
 import java.math.BigDecimal;
+import br.com.caelum.vraptor.entity.Moeda;
 
 public class Dinheiro {
 		
