@@ -1,12 +1,26 @@
 package br.com.caelum.vraptor.entity;
 
 import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
+
 import br.com.caelum.vraptor.entity.Moeda;
 
 public class Dinheiro {
 		
+	@Enumerated(EnumType.STRING)
 	private Moeda moeda;
+	
+	@Column
 	private BigDecimal montante;
+	
+	public Dinheiro(){
+		
+	}
 	
 	
 	public Dinheiro(Moeda moeda, BigDecimal montante) {

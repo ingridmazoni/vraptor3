@@ -3,10 +3,12 @@ package livraria;
 import java.math.BigDecimal;
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
 import br.com.caelum.vraptor.Converter;
 import br.com.caelum.vraptor.entity.Dinheiro;
+import br.com.caelum.vraptor.entity.DinheiroConverter;
 import br.com.caelum.vraptor.entity.Moeda;
 
 

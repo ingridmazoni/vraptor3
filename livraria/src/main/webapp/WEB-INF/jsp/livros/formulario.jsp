@@ -29,14 +29,14 @@ ${error.message}
 						<textarea name="livro.descricao">${livro.descricao}</textarea></li>
 			<li>ISBN: <br/>
 						<input type="text" name="livro.isbn" value="${livro.isbn}"/></li>
-			<li>Moeda: <br/>
+			<%-- <li>Moeda: <br/>
 						<select name="livro.preco.moeda">
  								<c:forEach items="${listaMoedas}" var="moedas">
 									 <option value="${moedas}">${moedas}</option>
  								</c:forEach>
-						</select>	
+						</select>	 --%>
 			<li>Montante: <br/>
-						<input type="text" name="livro.preco.montante" value="${livro.preco.montante}"/></li>
+						<input type="text" name="livro.preco" value="${livro.preco}"/></li>
 			<li>Data de publicacao: <br/>
 						<input type="text" name="livro.dataPublicacao" value="${livro.dataPublicacao}"/>
 						<input type="hidden" name="livro.id" value="${livro.id}" />
