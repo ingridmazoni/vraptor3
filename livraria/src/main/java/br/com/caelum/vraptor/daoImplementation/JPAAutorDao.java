@@ -22,7 +22,7 @@ public class JPAAutorDao implements AutorDao {
 		this.manager = manager;
 	}
 	
-	
+	//@Transacional
 	public void adiciona(Autor autor) {
 		this.manager.getTransaction().begin();
 		if (autor.getId() == null) {

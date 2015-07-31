@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/java/br/com/caelum/vraptor/controller=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/livros/formulario.jsp=UTF-8
 encoding/<project>=UTF-8

@@ -36,7 +36,7 @@ public class JPALivroDao implements LivroDao {
 	
 
 
-	
+	/*@Transacional*/
 	public void adiciona(Livro livro) {
 		this.manager.getTransaction().begin();
 		

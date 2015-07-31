@@ -21,10 +21,10 @@ public class ValidatorAutor {
 	
 	
 	
-	public Validator validaAutor(Autor autor, Livro livro){
+	public Validator validaAutor(Autor autor){
 		this.validador.validate(autor);
 		
-		if(estante.buscaPorId(livro.getId())==false){
+		if(estante.buscaPorId(autor.getUltimoLivro().getId())==false){
 			validador.add(new I18nMessage("livro", "nao.existe", "ID"));
 		}
 		return validador;

@@ -11,6 +11,7 @@
           <class>br.com.caelum.vraptor.entity.Autor</class>
           <class>br.com.caelum.vraptor.entity.Pais</class>
            <class>br.com.caelum.vraptor.entity.Usuario</class>
+           <class>br.com.caelum.vraptor.entity.Moeda</class>
          
         <properties>
             <property name="hibernate.show_sql" value="true" />
@@ -22,6 +23,9 @@
   			<property name="hibernate.show_sql" value="true" />
   			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.connection.CharSet" value="utf8"/>
+        	<property name="hibernate.connection.characterEncoding" value="utf8"/>
+        	<property name="hibernate.connection.useUnicode" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>

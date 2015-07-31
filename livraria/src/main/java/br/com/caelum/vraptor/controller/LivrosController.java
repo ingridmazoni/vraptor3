@@ -8,6 +8,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.entity.Livro;
+import br.com.caelum.vraptor.entity.Moeda;
+import br.com.caelum.vraptor.entity.Pais;
 import br.com.caelum.vraptor.repository.Estante;
 import br.com.caelum.vraptor.validation.ValidatorLivros;
 
@@ -28,7 +30,9 @@ public class LivrosController {
 
 	
 	@Path(value = { "/salvaLivro"}, priority=Path.LOWEST)
-	public void formulario() {}
+	public void formulario() {
+		result.include("listaMoedas",Moeda.values());
+	}
 	
 
 	@Post("/salvaLivro")
