@@ -14,7 +14,7 @@
 	<c:forEach items="${autorList}" var="autor">
 		<li>
 				${autor.id} - ${autor.nome}
-				<a href="${linkTo[AutorController].edita}?id=${autor.id}">Modificar</a>
+				<a href="/livraria/editaAutor/${autor.id}">Modificar</a>
 		</li>
 	</c:forEach>
 

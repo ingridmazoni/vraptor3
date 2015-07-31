@@ -20,7 +20,7 @@ ${error.message}
 </c:forEach>
 </ul>
 
-	<form  action="<c:url value="/autor/salva"/>" method="post">
+	<form  action="<c:url value="/salvaAutor"/>" method="post">
 		<h2>Formulário de cadastro de autores</h2>
 		<ul>
 			<li>Nome: <br/>	
@@ -38,7 +38,7 @@ ${error.message}
 						<input type="hidden" name="autor.id" value="${autor.id}" />
 			</li>
 			<li>Ultimo Livro: <br/>
-						<input type="text" name="livro.id" value="${livro.id}"/></li>
+						<input type="text" name="autor.ultimoLivro.id" value="${autor.ultimoLivro.id}"/></li>
 		</ul>
 		<input type="submit" value="Salvar" />
 	</form>

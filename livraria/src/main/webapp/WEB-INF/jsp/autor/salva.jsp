@@ -9,7 +9,7 @@
 <body style="background-color:MistyRose">
 	<h2>Autor adicionado com sucesso!</h2>
 		<p>Veja aqui a
-			<a href="${linkTo[AutorController].lista}">lista de todos os autores</a>
+			<a href="/livraria/listaAutor">lista de todos os autores</a>
 		</p>
 </body>
 </html>
