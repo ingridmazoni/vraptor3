@@ -17,7 +17,7 @@ public class DinheiroConverterTest {
 	@Test
 	public void converteUmValorEmReais() {
 		Converter<Dinheiro> converter = new DinheiroConverter();
-		assertThat(converter.convert("R$1.00", null, null),is(new Dinheiro(Moeda.REAL, new BigDecimal("1.00"))));
+		assertThat(converter.convert("US$49,95", null, null),is(new Dinheiro(Moeda.DOLAR, new BigDecimal("49.95"))));
 		}
 
 
