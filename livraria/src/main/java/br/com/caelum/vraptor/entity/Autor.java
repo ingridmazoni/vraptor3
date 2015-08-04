@@ -1,5 +1,6 @@
 package br.com.caelum.vraptor.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -59,8 +60,9 @@ public class Autor {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Calendar getDataNascimento() {
-		return dataNascimento;
+	public String getDataNascimento() {
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		return sdf.format(dataNascimento.getTime());
 	}
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
