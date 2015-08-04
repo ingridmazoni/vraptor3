@@ -11,7 +11,19 @@ public class DinheiroConverter implements Converter<Dinheiro> {
 
 	public Dinheiro convert(String value, Class<? extends Dinheiro> type,ResourceBundle bundle) {
 		
-		return new Dinheiro(Moeda.REAL, new BigDecimal(value));
+		if (value.startsWith("R$")) {
+			return new Dinheiro(Moeda.REAL,	new BigDecimal(value.substring(2, value.length())));
+		}
+		if (value.startsWith("US$")) {
+			return new Dinheiro(Moeda.DOLAR,new BigDecimal(value.substring(3, value.length())));
+		}
+		if (value.startsWith("€")) {
+			return new Dinheiro(Moeda.EURO,	new BigDecimal(value.substring(1, value.length())));
+		}
+		if (value.startsWith("£")) {
+			return new Dinheiro(Moeda.LIBRA, new BigDecimal(value.substring(1, value.length())));
+		}
+		return null;
 	}
 
 }
