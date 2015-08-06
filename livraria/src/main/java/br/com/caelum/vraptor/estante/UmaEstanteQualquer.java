@@ -37,6 +37,13 @@ public class UmaEstanteQualquer implements Estante {
 	}
 
 
+
+	public void retira(Livro livro) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 }

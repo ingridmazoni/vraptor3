@@ -35,6 +35,11 @@ public class UmaEstanteNoBancoDeDados implements Estante{
 		return this.dao.buscaPorId(id);
 	}
 
+	public void retira(Livro livro) {
+		this.dao.retira(livro);
+		
+	}
+
 	
 	
 

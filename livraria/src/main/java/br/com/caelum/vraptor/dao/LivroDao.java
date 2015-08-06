@@ -10,5 +10,6 @@ public interface LivroDao {
 	public List<Livro> todos();
 	public Livro buscaPorIsbn(String isbn);
 	public boolean buscaPorId(Long id);
+	public void retira(Livro livro);
 
 }
