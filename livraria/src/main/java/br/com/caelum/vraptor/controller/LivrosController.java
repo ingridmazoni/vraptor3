@@ -2,6 +2,7 @@ package br.com.caelum.vraptor.controller;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -64,6 +65,13 @@ public class LivrosController {
 		}
 	}
 
+	
+	@Delete("/livro/{isbn}")
+	public void remove(String isbn){
+		Livro livro = estante.buscaPorIsbn(isbn);
+		estante.retira(livro);
+		result.nothing();
+		}
 
 	/*private void naoEncontrado() {
 	

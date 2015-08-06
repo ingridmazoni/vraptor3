@@ -10,8 +10,13 @@ import br.com.caelum.vraptor.Converter;
 public class DinheiroConverter implements Converter<Dinheiro> {
 
 	public Dinheiro convert(String value, Class<? extends Dinheiro> type,ResourceBundle bundle) {
-		
-		return new Dinheiro(Moeda.REAL, new BigDecimal(value));
+				
+		for (Moeda moeda : Moeda.values()) {
+			if (value.startsWith(moeda.getSimbolo())) {
+				return new Dinheiro(moeda, new BigDecimal(value.replace(moeda.getSimbolo()," ").replace(',','.').trim()));
+			}
+		}
+		return null;
 	}
 
 }

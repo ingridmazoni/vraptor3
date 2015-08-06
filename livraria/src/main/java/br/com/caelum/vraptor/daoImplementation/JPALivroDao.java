@@ -85,6 +85,17 @@ public class JPALivroDao implements LivroDao {
 	}
 
 
+	public void retira(Livro livro) {
+				
+		if (livro.getId() == null) {
+			this.manager.getTransaction().begin();
+			this.manager.remove(livro);
+			this.manager.getTransaction().commit();
+			
+		} 
+	}
+
+
 
 
 }

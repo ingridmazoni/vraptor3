@@ -1,6 +1,7 @@
 package br.com.caelum.vraptor.entity;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -70,8 +71,9 @@ public class Livro {
 	public void setPreco(Dinheiro preco) {
 		this.preco = preco;
 	}
-	public Calendar getDataPublicacao() {
-		return dataPublicacao;
+	public String getDataPublicacao() {
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		return sdf.format(dataPublicacao.getTime());
 	}
 	public void setDataPublicacao(Calendar dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
