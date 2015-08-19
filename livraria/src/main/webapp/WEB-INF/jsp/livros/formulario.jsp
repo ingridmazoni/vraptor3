@@ -6,6 +6,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+<script>
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( "#livrosForm" ).validate({
+  	  rules: {
+			"livro.titulo": {
+			required: true,
+			minlength: 3
+			},
+			"livro.descricao": {
+			required: true,
+			maxlength: 40
+			},
+			"livro.isbn": {
+			required: true,
+			maxlength: 40
+			},
+			"livro.preco": {
+			required: true,
+			maxlength: 40
+			},
+			"livro.dataPublicacao": {
+			required: true,
+			maxlength: 40
+			},
+			}
+});
+</script>
 </head>
 <body style="background-color:MistyRose">
 
@@ -20,15 +53,15 @@ ${error.message}
 </c:forEach>
 </ul>
 
-	<form  method="post" action="<c:url value="/salvaLivro"/>" >
+	<form  id="livrosForm" method="post" action="<c:url value="/salvaLivro"/>" >
 		<h2>Formulário de cadastro de livros</h2>
 		<ul>
 			<li>Titulo: <br/>	
-					<input type="text" name="livro.titulo" value="${livro.titulo}"/></li>
+					<input id="livro.titulo" type="text" name="livro.titulo" value="${livro.titulo}" class="required"/></li>
 			<li>Descricao: <br/>
-						<textarea name="livro.descricao">${livro.descricao}</textarea></li>
+						<textarea id="livro.descricao" name="livro.descricao" class="required">${livro.descricao}</textarea></li>
 			<li>ISBN: <br/>
-						<input type="text" name="livro.isbn" value="${livro.isbn}"/></li>
+						<input id="livro.isbn" type="text" name="livro.isbn" value="${livro.isbn}" class="required"/></li>
 			<%-- <li>Moeda: <br/>
 						<select name="livro.preco.moeda">
  								<c:forEach items="${listaMoedas}" var="moedas">
@@ -36,10 +69,10 @@ ${error.message}
  								</c:forEach>
 						</select>	 --%>
 			<li>Montante: <br/>
-						<input type="text" name="livro.preco" value="${livro.preco}"/></li>
+						<input id="livro.preco" type="text" name="livro.preco" value="${livro.preco}" class="required"/></li>
 			<li>Data de publicacao: <br/>
-						<input type="text" name="livro.dataPublicacao" value="${livro.dataPublicacao}"/>
-						<input type="hidden" name="livro.id" value="${livro.id}" />
+						<input id="livro.dataPublicacao" type="text" name="livro.dataPublicacao" value="${livro.dataPublicacao}" class="required"/>
+						<input id="livro.id" type="hidden" name="livro.id" value="${livro.id}" class="required" />
 						
 			</li>
 						

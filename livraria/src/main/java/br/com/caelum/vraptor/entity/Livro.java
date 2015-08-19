@@ -41,6 +41,7 @@ public class Livro {
 	@Embedded
 	private Dinheiro preco;
 	
+	@NotNull(message = "{campo.obrigatorio}")
 	@Temporal (TemporalType.DATE )
 	@Past(message = "{data.passado}")
 	@Column(name="dataPublicacao")
